@@ -1,2 +1,29 @@
-<h1>Section</h1>
-<p>Find me in app/views/section/index.html.erb</p>
+<h1>Sections</h1>
+<h4> <a href="/create_section/index">Create New Sections</a></h4>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Short Name</th>
+        <th>Public UID</th>
+        <th>State</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sections.each do |section| %>
+        <tr>
+          <td><%= section.name %></td>
+          <td><%= section.short_name %></td>
+          <td><%= section.public_uid %></td>
+          <td><%= section.state %></td>
+          <td>
+            <%= link_to "Edit", class: "btn btn-primary" %>
+            <%= link_to "Delete", class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
