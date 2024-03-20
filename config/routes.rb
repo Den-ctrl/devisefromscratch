@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  get 'section/index'
-  get 'create_section/index'
-  post 'create_section/index', to: 'create_section#create'  
+  resources :posts
+  # Section Page
+  get 'sections', to: 'sections#index'
+
+  # Create Section Page
+  get 'create_section', to: 'create_section#index'
+  post 'create_section', to: 'create_section#create'  
+
   devise_for :users
   root 'main#home'
-  resources :sections 
+  resources :sections
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

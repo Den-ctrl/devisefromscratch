@@ -1,5 +1,5 @@
 <h1>Sections</h1>
-<h4> <a href="/create_section/index">Create New Sections</a></h4>
+<h4> <%= link_to 'Create New Section', create_section_path%></h4>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -20,7 +20,12 @@
           <td><%= section.state %></td>
           <td>
             <%= link_to "Edit", class: "btn btn-primary" %>
-            <%= link_to "Delete", class: "btn btn-danger" %>
+            <%= link_to "Destroy", section_path(section), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } 
+            %>
+           
           </td>
         </tr>
       <% end %>
