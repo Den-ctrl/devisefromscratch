@@ -4,7 +4,7 @@ class CreateSectionController < ApplicationController
     end
     
     def show
-        @section = Section.find(params[:id])
+        @section = Section.find(params[:public_uid])
     end
 
     def new
@@ -15,7 +15,7 @@ class CreateSectionController < ApplicationController
         @section = Section.new(section_params)
 
         if @section.save
-            redirect_to @section
+            redirect_to sections_path
         else
             render :new, status: :unprocessable_entity
         end
